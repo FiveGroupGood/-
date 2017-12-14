@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="500dp"
+    android:background="@mipmap/card_bg_def"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="我是孙太帅"
+        android:textSize="18dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-100dp"
+       android:gravity="center"
+        >
+        <com.bwei.demo.utils.RoundImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:radius="10dp"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/jianjie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="简介"
+        android:textSize="15dp"
+        android:maxHeight="35dp"
+        android:layout_marginTop="-110dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+</LinearLayout>
