@@ -2,6 +2,7 @@ package com.bwei.demo.utils.http;
 
 import com.bwei.demo.bean.DetailsBean;
 import com.bwei.demo.bean.RecommendBean;
+import com.bwei.demo.bean.SeekBean;
 import com.bwei.demo.bean.VideoHttpResponse;
 import com.bwei.demo.bean.VideoRes;
 
@@ -35,6 +36,14 @@ public interface VideoApi {
      */
     @GET("videoDetailApi/videoDetail.do")
     Flowable<DetailsBean> getVideoInfo(@Query("mediaId") String mediaId);
+
+    /**
+     * 搜索
+     * http://api.svipmovie.com/front/searchKeyWordApi/getVideoListByKeyWord.do?keyword=复仇者&pnum=1
+     *
+     */
+    @GET("searchKeyWordApi/getVideoListByKeyWord.do")
+    Flowable<SeekBean> getSeekData(@Query("keyword")String keyword , @Query("pnum")String pnum);
 
 
 
