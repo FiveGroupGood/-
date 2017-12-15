@@ -41,9 +41,17 @@ public interface VideoApi {
     /**
      * 搜索
      * http://api.svipmovie.com/front/searchKeyWordApi/getVideoListByKeyWord.do?keyword=复仇者&pnum=1
+<<<<<<< HEAD
      */
     @GET("searchKeyWordApi/getVideoListByKeyWord.do")
     Flowable<SeekBean> getSeekData(@Query("keyword") String keyword, @Query("pnum") String pnum);
+=======
+     *
+     */
+    @GET("searchKeyWordApi/getVideoListByKeyWord.do")
+    Flowable<SeekBean> getSeekData(@Query("keyword")String keyword , @Query("pnum")String pnum);
+
+>>>>>>> e35369a9388899dbcda3774f8a4e0aab94b9a4a5
 
 
     /**
