@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_colorful"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
 
     <RelativeLayout
@@ -54,7 +53,14 @@
         app:tabTextColor="#fff" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/details_rv"
+        android:id="@+id/details_rv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_rv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
 </LinearLayout>

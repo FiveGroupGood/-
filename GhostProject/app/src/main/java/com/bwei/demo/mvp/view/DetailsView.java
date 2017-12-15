@@ -1,6 +1,7 @@
 package com.bwei.demo.mvp.view;
 
 
+import com.bwei.demo.bean.CommentBean;
 import com.bwei.demo.bean.DetailsBean;
 
 /**
@@ -10,4 +11,6 @@ import com.bwei.demo.bean.DetailsBean;
 public interface DetailsView {
 
     void returnDetailsData(DetailsBean details);
+
+    void returnCommentData(CommentBean commentBean);
 }

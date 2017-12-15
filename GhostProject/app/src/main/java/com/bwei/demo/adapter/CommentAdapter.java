@@ -1,115 +1,73 @@
 package com.bwei.demo.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.bwei.demo.R;
-import com.bwei.demo.bean.DetailsBean;
-import com.bwei.demo.utils.ExpandableTextView;
+import com.bwei.demo.bean.CommentBean;
+import com.bwei.demo.utils.CircleImageView;
 
 import java.util.List;
 
 /**
- * Created by ${李晨阳} on 2017/12/13.
+ * Created by ${李晨阳} on 2017/12/15.
  */
 
 public class CommentAdapter extends RecyclerView.Adapter {
-
     private Context context;
-    private DetailsBean.RetBean detailsRet;
-    private int TYPE_ONE = 1;
-    private int TYPE_TWO = 2;
-    private View view;
+    private List<CommentBean.RetBean.ListBean> commentList;
 
-    public CommentAdapter(Context context, DetailsBean.RetBean detailsRet) {
+    public CommentAdapter(Context context, List<CommentBean.RetBean.ListBean> commentList) {
         this.context = context;
-        this.detailsRet = detailsRet;
+        this.commentList = commentList;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        if (viewType == TYPE_ONE) {
-
-            view = View.inflate(context, R.layout.details_item1_layout, null);
-            Item1 item1 = new Item1(view);
-            return item1;
-        } else if (viewType == TYPE_TWO) {
-
-            view = View.inflate(context, R.layout.details_item2_layout, null);
-            Item2 item2 = new Item2(view);
-            return item2;
-        }
-        return null;
+        View view = View.inflate(context, R.layout.details_comment_layout, null);
+        Item item = new Item(view);
+        return item;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        if (holder instanceof Item1) {
+        if (holder instanceof Item) {
 
-            ((Item1) holder).comment_director.setText("导演：" + detailsRet.getDirector());
-            ((Item1) holder).comment_actors.setText("主演：" + detailsRet.getActors());
+            if (commentList.get(position).getUserPic() != null) {
 
-            ((Item1) holder).expandable_text.setText("简介：" + detailsRet.getDescription(), detailsRet.isFlgh());
-            ((Item1) holder).expandable_text.setListener(new ExpandableTextView.OnExpandStateChangeListener() {
-                @Override
-                public void onExpandStateChanged(boolean isExpanded) {
-                    detailsRet.setFlgh(isExpanded);
-                }
-            });
-
-        } else if (holder instanceof Item2) {
-
-            ((Item2) holder).comment_rv.setLayoutManager(new GridLayoutManager(context, 3));
-            List<DetailsBean.RetBean.ListBean.ChildListBean> childList = detailsRet.getList().get(0).getChildList();
-            ((Item2) holder).comment_rv.setAdapter(new Comment_ItemAdapter(context, childList));
+                Glide.with(context).load(commentList.get(position).getUserPic()).into(((Item) holder).userPc);
+                ((Item) holder).msg.setText(commentList.get(position).getMsg());
+                ((Item) holder).phoneNumber.setText(commentList.get(position).getPhoneNumber());
+                ((Item) holder).time.setText(commentList.get(position).getTime());
+            }
         }
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return commentList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
+    class Item extends RecyclerView.ViewHolder {
 
-        if (position == 0) {
+        private CircleImageView userPc;
+        private TextView phoneNumber, msg, time;
 
-            return TYPE_ONE;
-        } else {
-
-            return TYPE_TWO;
-        }
-    }
-
-    class Item1 extends RecyclerView.ViewHolder {
-
-        private TextView comment_director, comment_actors;
-        ExpandableTextView expandable_text;
-
-        public Item1(View itemView) {
+        public Item(View itemView) {
             super(itemView);
 
-            comment_director = (TextView) itemView.findViewById(R.id.comment_director);
-            comment_actors = (TextView) itemView.findViewById(R.id.comment_actors);
-            expandable_text = (ExpandableTextView) itemView.findViewById(R.id.expandable_text);
+            userPc = (CircleImageView) itemView.findViewById(R.id.userPic);
+            phoneNumber = (TextView) itemView.findViewById(R.id.phoneNumber);
+            msg = (TextView) itemView.findViewById(R.id.msg);
+            time = (TextView) itemView.findViewById(R.id.time);
+
         }
     }
 
-    class Item2 extends RecyclerView.ViewHolder {
-
-        private RecyclerView comment_rv;
-
-        public Item2(View itemView) {
-            super(itemView);
-
-            comment_rv = (RecyclerView) itemView.findViewById(R.id.comment_rv);
-        }
-    }
 }
