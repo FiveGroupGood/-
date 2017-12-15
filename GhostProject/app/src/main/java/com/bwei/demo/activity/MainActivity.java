@@ -1,5 +1,6 @@
 package com.bwei.demo.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -89,7 +90,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_fuli:
-
+                startActivity(new Intent(MainActivity.this,WelfareActivity.class));
                 break;
         }
     }

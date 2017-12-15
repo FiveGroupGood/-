@@ -12,4 +12,7 @@ public class Api {
 //    public static String HOST = "http://api.svipmovie.com/front/";
     public static DetailsBean.RetBean detailsRet;
 
+    //福利
+    public static String HOST = "http://gank.io/api/";
+
 }

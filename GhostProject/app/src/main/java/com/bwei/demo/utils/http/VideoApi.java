@@ -2,6 +2,7 @@ package com.bwei.demo.utils.http;
 
 import com.bwei.demo.bean.CommentBean;
 import com.bwei.demo.bean.DetailsBean;
+import com.bwei.demo.bean.GankItemBean;
 import com.bwei.demo.bean.RecommendBean;
 import com.bwei.demo.bean.SeekBean;
 import com.bwei.demo.bean.VideoHttpResponse;
@@ -9,6 +10,7 @@ import com.bwei.demo.bean.VideoRes;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -53,6 +55,9 @@ public interface VideoApi {
 
 >>>>>>> e35369a9388899dbcda3774f8a4e0aab94b9a4a5
 
+    //福利
+    @GET("data/福利/{num}/{page}")
+    Flowable<GankItemBean> getGirlList(@Path("num") int num, @Path("page") int page);
 
     /**
      * 获取评论列表

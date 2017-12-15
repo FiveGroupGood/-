@@ -2,6 +2,7 @@ package com.bwei.demo.di.component;
 
 import android.app.Activity;
 
+import com.bwei.demo.activity.WelfareActivity;
 import com.bwei.demo.di.module.DetailsModule;
 
 import dagger.Component;
@@ -14,4 +15,5 @@ import dagger.Component;
 public interface DetailsComponent {
 
     void inject(Activity activity);
+    void inject(WelfareActivity activity);
 }
