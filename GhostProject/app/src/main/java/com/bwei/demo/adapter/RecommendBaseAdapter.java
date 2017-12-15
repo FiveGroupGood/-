@@ -58,7 +58,7 @@ public class RecommendBaseAdapter extends BaseAdapter {
         String title = childList.get(position).getTitle();
         viewHodler.textView.setText(title);
         viewHodler.imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Glide.with(context).load(childList.get(position).getPic()).into(viewHodler.imageView);
+        Glide.with(context).load(childList.get(position).getPic()).placeholder(R.mipmap.default_320).into(viewHodler.imageView);
 
 
         return convertView;

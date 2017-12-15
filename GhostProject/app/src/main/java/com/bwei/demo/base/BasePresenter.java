@@ -30,6 +30,6 @@ public class BasePresenter<T> {
     }
 
     public boolean isAttach() {
-        return reference != null ? true : false;
+        return reference != null && reference.get()!=null;
     }
 }
