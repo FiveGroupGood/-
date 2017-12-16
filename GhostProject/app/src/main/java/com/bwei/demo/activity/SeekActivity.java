@@ -51,7 +51,6 @@ public class SeekActivity extends BaseActivity<SeekView, SeekPresenter> implemen
                     Toast.makeText(SeekActivity.this, "请输入要搜索的关键字", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-
                     presenter.getSeek(s);
                 }
             }
@@ -77,7 +76,7 @@ public class SeekActivity extends BaseActivity<SeekView, SeekPresenter> implemen
 
                 String dataId = list.get(position).getDataId();
                 Intent intent = new Intent(SeekActivity.this,DetailsActivity.class);
-                intent.putExtra("dataId",dataId);
+                intent.putExtra("dataid",dataId);
                 startActivity(intent);
             }
         });

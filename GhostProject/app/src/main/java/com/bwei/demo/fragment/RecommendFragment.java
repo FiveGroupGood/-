@@ -84,7 +84,6 @@ public class RecommendFragment extends BaseFragment<RecommendView, RecommendPre>
 
         return R.layout.recommend_layout;
     }
-
     @Override
     protected RecommendPre getPresenter() {
         return new RecommendPre();

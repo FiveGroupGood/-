@@ -22,7 +22,7 @@ import com.bwei.demo.mvp.view.DetailsView;
 import butterknife.BindView;
 import cn.jzvd.JZVideoPlayerStandard;
 
-public class DetailsActivity extends BaseActivity<DetailsView, DetailsPresenter> implements DetailsView {
+public class  DetailsActivity extends BaseActivity<DetailsView, DetailsPresenter> implements DetailsView {
 
 
     @BindView(R.id.details_tab)
