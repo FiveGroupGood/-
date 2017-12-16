@@ -51,11 +51,7 @@ public class MineFragment extends BaseFragment {
         return null;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+
 
     @OnClick({R.id.mine_lishi, R.id.mine_huancun, R.id.mine_shoucang, R.id.mine_zhuti})
     public void onViewClicked(View view) {
